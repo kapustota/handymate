@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>HandyMate</title>
+<!-- The CrazyGames SDK, before the game code (docs/CRAZYGAMES.md §3). Off the platform it is "disabled" and @cg/platform runs a no-op SDK. -->
+<!-- onerror: @cg/platform's boot() runs offline at once when the SDK is blocked, instead of waiting its 8 s -->
+<script src="https://sdk.crazygames.com/crazygames-sdk-v3.js" onerror="window.cgSdkFailed = true"></script>
+  <script type="module" crossorigin src="./assets/index-DYTR-gps.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-nYosUXwa.css">
+</head>
+<body>
+<div id="phone">
+  <div id="sheet">
+    <section id="title" class="screen" hidden>
+      <h1 class="brand">HandyMate<svg class="underline" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5.2 C 20 3.4, 41 6.1, 60 4.4 S 90 3.2, 98 4.6" /></svg></h1>
+      <svg class="doodle" viewBox="0 0 60 34" aria-hidden="true">
+        <path class="wall" d="M0 0 H60 V4 H4 V34 H0 Z" />
+        <path class="cable" d="M8 26 V8 H48" />
+        <g class="dev"><circle cx="8" cy="26" r="3.2" /><path d="M6.9 24.7 V27.3 M9.1 24.7 V27.3" /></g>
+        <g class="dev"><circle cx="48" cy="8" r="3.2" /><path d="M46.6 6.6 L49.4 9.4 M49.4 6.6 L46.6 9.4" /></g>
+        <path class="tick" d="M50.5 3.6 l1.3 1.4 l2.7 -3.2" />
+      </svg>
+      <button id="start" class="ptag start" type="button"><b id="startLabel"></b><small id="startNote"></small></button>
+    </section>
+    <section id="job" class="screen" hidden>
+      <div class="tape">
+        <div class="who" id="who"></div>
+        <div class="nums">
+          <span><span data-t="estimate"></span><b id="estimate"></b></span>
+          <span><span data-t="spent"></span><b id="spent"></b></span>
+          <span id="gain" class="profit"><span id="gainLabel"></span><b id="profit"></b></span>
+        </div>
+        <div class="ruler">
+          <svg viewBox="0 0 100 17" preserveAspectRatio="none" aria-hidden="true">
+            <g id="ticks"></g>
+            <line id="bar" x1="3" y1="9" x2="3" y2="9" />
+            <line id="foreman" x1="3" y1="4" x2="3" y2="11.5" />
+            <text id="rulerLabel" x="91" y="3.6" text-anchor="end"></text>
+            <text id="overrun" y="15.6" text-anchor="end"></text>
+          </svg>
+        </div>
+        <div class="done" id="done"></div>
+      </div>
+      <div class="note" id="note"></div>
+      <div class="board"><canvas id="plan" role="img"></canvas></div>
+      <div class="controls">
+        <button id="undo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5" /><path d="M5 11h9.5a5 5 0 0 1 0 10H11" /></svg></button>
+        <button id="finish" class="ptag finish" type="button" data-t="finish" hidden></button>
+        <div class="zoom"><button id="zoomOut" class="disc" type="button">−</button><button id="zoomIn" class="disc" type="button">+</button></div>
+      </div>
+    </section>
+    <div id="card" class="card" role="dialog" aria-labelledby="cardTitle" hidden>
+      <p id="cardTitle" class="headline"></p>
+      <div class="money" id="cardProfit"><span data-t="profit"></span><b id="cardProfitValue"></b></div>
+      <div id="cardStars" class="stars"></div>
+      <div id="stamp" class="stamp" data-t="cheaper" hidden></div>
+      <div class="savings"><span data-t="savings"></span><b id="cardSavings"></b></div>
+      <button id="next" class="ptag" type="button" data-t="next"></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
