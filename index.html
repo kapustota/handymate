@@ -4,11 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>HandyMate</title>
-<!-- The CrazyGames SDK, before the game code (docs/CRAZYGAMES.md §3). Off the platform it is "disabled" and @cg/platform runs a no-op SDK. -->
-<!-- onerror: @cg/platform's boot() runs offline at once when the SDK is blocked, instead of waiting its 8 s -->
-<script>window.cgSdkFailed = true</script>
-  <script type="module" crossorigin src="./assets/index-DYTR-gps.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-nYosUXwa.css">
+  <script type="module" crossorigin src="./assets/index-Bjs3k3-s.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-SoaXLrWS.css">
 </head>
 <body>
 <div id="phone">
@@ -23,6 +20,8 @@
         <path class="tick" d="M50.5 3.6 l1.3 1.4 l2.7 -3.2" />
       </svg>
       <button id="start" class="ptag start" type="button"><b id="startLabel"></b><small id="startNote"></small></button>
+      <p id="soon" class="soon" hidden></p>
+      <div id="played" class="played" hidden></div>
     </section>
     <section id="job" class="screen" hidden>
       <div class="tape">
@@ -36,7 +35,6 @@
           <svg viewBox="0 0 100 17" preserveAspectRatio="none" aria-hidden="true">
             <g id="ticks"></g>
             <line id="bar" x1="3" y1="9" x2="3" y2="9" />
-            <line id="foreman" x1="3" y1="4" x2="3" y2="11.5" />
             <text id="rulerLabel" x="91" y="3.6" text-anchor="end"></text>
             <text id="overrun" y="15.6" text-anchor="end"></text>
           </svg>
@@ -47,17 +45,22 @@
       <div class="board"><canvas id="plan" role="img"></canvas></div>
       <div class="controls">
         <button id="undo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5" /><path d="M5 11h9.5a5 5 0 0 1 0 10H11" /></svg></button>
-        <button id="finish" class="ptag finish" type="button" data-t="finish" hidden></button>
+        <button id="finish" class="ptag finish" type="button" hidden><b data-t="finish"></b><small id="bill" hidden></small></button>
         <div class="zoom"><button id="zoomOut" class="disc" type="button">−</button><button id="zoomIn" class="disc" type="button">+</button></div>
       </div>
     </section>
     <div id="card" class="card" role="dialog" aria-labelledby="cardTitle" hidden>
       <p id="cardTitle" class="headline"></p>
-      <div class="money" id="cardProfit"><span data-t="profit"></span><b id="cardProfitValue"></b></div>
       <div id="cardStars" class="stars"></div>
-      <div id="stamp" class="stamp" data-t="cheaper" hidden></div>
+      <p id="review" class="review"><span id="reviewLine"></span><span id="reviewBy" class="by"></span></p>
+      <div class="money" id="cardProfit"><span data-t="profit"></span><b id="cardProfitValue"></b></div>
+      <div id="stamp" class="stamp" data-t="best" hidden></div>
       <div class="savings"><span data-t="savings"></span><b id="cardSavings"></b></div>
-      <button id="next" class="ptag" type="button" data-t="next"></button>
+      <div id="cardPlayed" class="played" hidden></div>
+      <div id="actions" class="actions">
+        <button id="again" class="ptag" type="button" data-t="again"></button>
+        <button id="next" class="ptag" type="button" data-t="next"></button>
+      </div>
     </div>
   </div>
 </div>
