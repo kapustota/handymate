@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>HandyMate</title>
-  <script type="module" crossorigin src="./assets/index-U7eB4ECX.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-MD2RXdzl.css">
+  <script type="module" crossorigin src="./assets/index-xlQRm1ua.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CVP0ZlhA.css">
 </head>
 <body>
 <svg class="library" width="0" height="0" aria-hidden="true">
@@ -29,6 +29,28 @@
     <path class="cable" d="M16 25 H104" />
     <g class="dev"><circle cx="16" cy="25" r="6.4" /><path d="M13.6 22 V28 M18.4 22 V28" /></g>
     <g class="dev"><circle cx="104" cy="25" r="6.4" /><path d="M101.6 22 V28 M106.4 22 V28" /></g>
+  </symbol>
+  <!-- Step 3's card (tasks/U/03): the kettle on a line whose breaker tag goes red, its slots spilling over. -->
+  <symbol id="art-load" viewBox="0 0 132 64">
+    <g class="pencil">
+      <path d="M8 54 H40 L35 22 H13 Z" />
+      <path class="spout" d="M37 34 L46 25" />
+      <path class="handle" d="M13 28 Q3 31 6 42 Q8 48 11 48" />
+      <path d="M19 22 Q24 15 29 22" />
+      <rect x="21" y="14" width="6" height="3.4" rx="1.4" />
+    </g>
+    <path class="cable" d="M40 46 H58" />
+    <g class="tag">
+      <rect class="label" x="58" y="18" width="58" height="38" rx="3" />
+      <text x="64" y="31">16 A</text>
+      <g class="full">
+        <rect x="64" y="38" width="4.6" height="7" rx="1" /><rect x="70" y="38" width="4.6" height="7" rx="1" />
+        <rect x="76" y="38" width="4.6" height="7" rx="1" /><rect x="82" y="38" width="4.6" height="7" rx="1" />
+        <rect x="88" y="38" width="4.6" height="7" rx="1" /><rect x="94" y="38" width="4.6" height="7" rx="1" />
+        <rect x="100" y="38" width="4.6" height="7" rx="1" /><rect x="106" y="38" width="4.6" height="7" rx="1" />
+      </g>
+      <g class="spill"><rect x="114" y="38" width="4.6" height="7" rx="1" /><rect x="121" y="38" width="4.6" height="7" rx="1" /></g>
+    </g>
   </symbol>
 </svg>
 <div id="phone">
@@ -66,7 +88,8 @@
         <div class="done" id="done"></div>
       </div>
       <div class="note" id="note"></div>
-      <div class="board"><canvas id="plan" role="img"></canvas></div>
+      <div class="board"><canvas id="plan" role="img"></canvas><div id="draw" class="draw" hidden></div></div>
+      <div id="strip" class="strip" role="toolbar" hidden></div>
       <div class="controls">
         <button id="undo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5" /><path d="M5 11h9.5a5 5 0 0 1 0 10H11" /></svg></button>
         <button id="finish" class="ptag finish" type="button" hidden><b data-t="finish"></b><small id="bill" hidden></small></button>
@@ -91,6 +114,7 @@
     <button id="feature" class="feature" type="button" hidden>
       <span class="label">
         <svg data-feature="drill" viewBox="0 0 120 116" aria-hidden="true"><use href="#art-hammer" width="120" height="60" /><use href="#art-hole" y="66" width="120" height="50" /></svg>
+        <svg data-feature="load" viewBox="0 0 132 64" aria-hidden="true"><use href="#art-load" /></svg>
       </span>
     </button>
     <div id="card" class="card" role="dialog" aria-labelledby="cardTitle" hidden>
