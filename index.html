@@ -4,10 +4,33 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>HandyMate</title>
-  <script type="module" crossorigin src="./assets/index-BC94hbTD.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-SoaXLrWS.css">
+  <script type="module" crossorigin src="./assets/index-CzlLhZyl.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-MD2RXdzl.css">
 </head>
 <body>
+<svg class="library" width="0" height="0" aria-hidden="true">
+  <!-- The shop's and the feature cards' pictures, in the plan's pencil (DESIGN.md «Shapes»); the cable in marker. -->
+  <symbol id="art-hammer" viewBox="0 0 120 60">
+    <g class="pencil">
+      <path class="bit" d="M3 26 H37" />
+      <path class="flute" d="M9 23.6 l3 4.8 M16 23.6 l3 4.8 M23 23.6 l3 4.8 M30 23.6 l3 4.8" />
+      <rect x="36" y="20" width="10" height="12" rx="2" />
+      <rect x="40" y="31" width="8" height="21" rx="3" />
+      <path d="M46 14 H92 Q99 14 99 21 V31 Q99 38 92 38 H53 Q46 38 46 31 Z" />
+      <path d="M92 14 H106 Q114 14 114 22 V48 Q114 56 106 56 H98 Q92 56 92 50 V38" />
+      <rect class="grip" x="99" y="22" width="8" height="26" rx="3.5" />
+      <path class="vent" d="M62 19 V26 M67 19 V26 M72 19 V26 M77 19 V26" />
+      <path class="cord" d="M108 56 q2 3 8 3" />
+    </g>
+  </symbol>
+  <symbol id="art-hole" viewBox="0 0 120 50">
+    <rect class="wall" x="52" y="0" width="16" height="50" />
+    <rect class="bore" x="52" y="18" width="16" height="14" />
+    <path class="cable" d="M16 25 H104" />
+    <g class="dev"><circle cx="16" cy="25" r="6.4" /><path d="M13.6 22 V28 M18.4 22 V28" /></g>
+    <g class="dev"><circle cx="104" cy="25" r="6.4" /><path d="M101.6 22 V28 M106.4 22 V28" /></g>
+  </symbol>
+</svg>
 <div id="phone">
   <div id="sheet">
     <section id="title" class="screen" hidden>
@@ -20,6 +43,7 @@
         <path class="tick" d="M50.5 3.6 l1.3 1.4 l2.7 -3.2" />
       </svg>
       <button id="start" class="ptag start" type="button"><b id="startLabel"></b><small id="startNote"></small></button>
+      <button id="toShop" class="ptag shoptag" type="button" hidden><svg viewBox="0 0 120 60" aria-hidden="true"><use href="#art-hammer" /></svg><span data-t="toShop"></span></button>
       <p id="soon" class="soon" hidden></p>
       <div id="played" class="played" hidden></div>
     </section>
@@ -49,6 +73,26 @@
         <div class="zoom"><button id="zoomOut" class="disc" type="button">−</button><button id="zoomIn" class="disc" type="button">+</button></div>
       </div>
     </section>
+    <section id="shop" class="screen shop" hidden>
+      <p class="headline" data-t="shop"></p>
+      <div class="savings"><span data-t="savings"></span><b id="shopSavings"></b></div>
+      <div class="item">
+        <svg class="tool" viewBox="0 0 120 60" aria-hidden="true"><use href="#art-hammer" /></svg>
+        <p class="name" data-t="drillName"></p>
+        <svg id="does" class="does" viewBox="0 0 120 50" role="img" aria-label="A hole through a wall for the cable"><use href="#art-hole" /></svg>
+        <b id="price" class="price"></b>
+        <div id="owned" class="stamp" data-t="bought" hidden></div>
+      </div>
+      <button id="buy" class="ptag big" type="button"></button>
+      <p id="short" class="short" hidden></p>
+      <button id="shopNext" class="ptag big" type="button" data-t="next" hidden></button>
+      <div id="shopPlayed" class="played" hidden></div>
+    </section>
+    <button id="feature" class="feature" type="button" hidden>
+      <span class="label">
+        <svg data-feature="drill" viewBox="0 0 120 116" aria-hidden="true"><use href="#art-hammer" width="120" height="60" /><use href="#art-hole" y="66" width="120" height="50" /></svg>
+      </span>
+    </button>
     <div id="card" class="card" role="dialog" aria-labelledby="cardTitle" hidden>
       <p id="cardTitle" class="headline"></p>
       <div id="cardStars" class="stars"></div>
@@ -60,6 +104,7 @@
       <div id="actions" class="actions">
         <button id="again" class="ptag" type="button" data-t="again"></button>
         <button id="next" class="ptag" type="button" data-t="next"></button>
+        <button id="cardShop" class="ptag" type="button" data-t="toShop" hidden></button>
       </div>
     </div>
   </div>
