@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>HandyMate</title>
-  <script type="module" crossorigin src="./assets/index-Dw8OXpbI.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DFTLz4cG.css">
+  <script type="module" crossorigin src="./assets/index-BZ9M2qPN.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CcPjQubf.css">
 </head>
 <body>
 <svg class="library" width="0" height="0" aria-hidden="true">
@@ -189,11 +189,14 @@
       <div class="controls">
         <div class="left">
           <button id="undo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5" /><path d="M5 11h9.5a5 5 0 0 1 0 10H11" /></svg></button>
+          <button id="redo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6.5 19.5 11 15 15.5" /><path d="M19 11H9.5a5 5 0 0 0 0 10H13" /></svg></button>
+          <button id="eraser" class="disc eraser" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 20 3.6 14.6a1.7 1.7 0 0 1 0-2.4l8.6-8.6a1.7 1.7 0 0 1 2.4 0l5.8 5.8a1.7 1.7 0 0 1 0 2.4L12 20Z" /><path d="M8.4 9.4l6.2 6.2" /><path d="M9 20h11" /></svg></button>
           <button id="hint" class="disc hint" type="button" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z" /><path d="M13 7l4 4" /></svg></button>
         </div>
-        <button id="finish" class="ptag finish" type="button" hidden><b data-t="finish"></b><small id="bill" hidden></small></button>
+        <button id="finish" class="ptag finish" type="button" aria-disabled="true"><b data-t="finish"></b><small id="bill" hidden></small></button>
         <div class="zoom"><button id="zoomOut" class="disc" type="button">−</button><button id="zoomIn" class="disc" type="button">+</button></div>
       </div>
+      <div id="pops" class="pops" aria-hidden="true"><span id="cost" class="pop running" hidden></span></div>
       <div id="ways" class="ways" hidden>
         <button class="ptag way" type="button" data-pay="client"><span class="wstars" id="clientStars"></span><span data-t="wayClient"></span><b id="clientMoney"></b></button>
         <button class="ptag way" type="button" data-pay="savings"><span class="wstars" id="savingsStars"></span><span data-t="waySavings"></span><b id="savingsMoney"></b></button>
@@ -239,6 +242,7 @@
       <div class="savings"><span data-t="savings"></span><b id="cardSavings"></b></div>
       <div id="cardPlayed" class="played" hidden></div>
       <div id="actions" class="actions">
+        <button id="back" class="ptag" type="button" data-t="back"></button>
         <button id="again" class="ptag" type="button" data-t="again"></button>
         <button id="next" class="ptag" type="button" data-t="next"></button>
         <button id="cardShop" class="ptag" type="button" data-t="toShop" hidden></button>
