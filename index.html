@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>HandyMate</title>
-  <script type="module" crossorigin src="./assets/index-DxFFfMgp.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DKAP_0Vg.css">
+  <script type="module" crossorigin src="./assets/index-Dw8OXpbI.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DFTLz4cG.css">
 </head>
 <body>
 <svg class="library" width="0" height="0" aria-hidden="true">
@@ -95,6 +95,49 @@
     <g class="dev"><circle cx="90" cy="19" r="6" /><path d="M87.8 16.2 V21.8 M92.2 16.2 V21.8" /></g>
     <g class="dev"><circle cx="124" cy="29" r="6" /><path d="M121.2 29.7 A2.8 2.8 0 0 1 126.8 29.7 Z M124 29.7 V32" /></g>
   </symbol>
+  <!-- Step 7 (tasks/U/07): the RCD tester — a plug-in box with its two pins, three lamps and the test button — and the wet
+       room: a water drop over the bathroom's cable, which runs into the RCD (its lever up, its «T» button) at the panel. -->
+  <symbol id="art-tester" viewBox="0 0 120 60">
+    <g class="pencil">
+      <path class="pins" d="M14 24 H4 M14 36 H4" />
+      <rect x="14" y="10" width="72" height="40" rx="7" />
+      <rect class="grip" x="86" y="18" width="14" height="24" rx="4" />
+      <circle class="lamp" cx="30" cy="22" r="3.6" /><circle class="lamp" cx="42" cy="22" r="3.6" /><circle class="lamp" cx="54" cy="22" r="3.6" />
+      <circle class="test" cx="70" cy="36" r="6" />
+      <path class="vent" d="M26 38 H56" />
+    </g>
+  </symbol>
+  <symbol id="art-wet" viewBox="0 0 132 64">
+    <path class="drop" d="M30 4 C 38 16 46 25 46 34 A16 16 0 0 1 14 34 C 14 25 22 16 30 4 Z" />
+    <path class="cable" d="M48 40 H84" />
+    <g class="pencil rcd">
+      <rect x="84" y="8" width="40" height="50" rx="3" />
+      <path class="cap" d="M84 13.5 V11 Q84 8 87 8 H121 Q124 8 124 11 V13.5 Z" />
+      <rect class="lever" x="96" y="15" width="8" height="14" rx="1.6" />
+      <circle class="test" cx="113" cy="45" r="5" />
+      <text x="113" y="47.6" text-anchor="middle">T</text>
+    </g>
+  </symbol>
+  <!-- The hook after the hour (tasks/U/07): a hob, padlocked; the crimping tool that opens it beside it. -->
+  <symbol id="art-hook" viewBox="0 0 132 64">
+    <g class="pencil">
+      <rect x="4" y="6" width="52" height="52" rx="4" />
+      <circle cx="18" cy="20" r="8" /><circle cx="42" cy="20" r="8" /><circle cx="18" cy="44" r="8" /><circle cx="42" cy="44" r="8" />
+      <path class="rings" d="M21 20 a3 3 0 1 1 -6 0 a3 3 0 1 1 6 0 M45 20 a3 3 0 1 1 -6 0 a3 3 0 1 1 6 0 M21 44 a3 3 0 1 1 -6 0 a3 3 0 1 1 6 0 M45 44 a3 3 0 1 1 -6 0 a3 3 0 1 1 6 0" />
+    </g>
+    <g class="pencil lock">
+      <path class="shackle" d="M44 38 V31 a8 8 0 0 1 16 0 V38" />
+      <rect x="40" y="37" width="24" height="21" rx="3" />
+      <path class="keyhole" d="M52 44 V51" />
+    </g>
+    <g class="pencil crimper">
+      <path class="handle" d="M101 32 L127 17 M101 32 L127 47" />
+      <path class="grips" d="M110 26.8 L126 17.6 M110 37.2 L126 46.4" />
+      <path d="M74 28.4 L96 26.6 L102 32 L96 37.4 L74 35.6 Q70.4 32 74 28.4 Z" />
+      <path class="die" d="M80 32 h3 l1.4 -2.4 h3.2 l1.4 2.4 l-1.4 2.4 h-3.2 l-1.4 -2.4" />
+      <circle cx="101" cy="32" r="3.4" />
+    </g>
+  </symbol>
 </svg>
 <div id="phone">
   <div id="sheet">
@@ -138,6 +181,11 @@
         <button class="cap" type="button" aria-pressed="false" data-method="chase" hidden><svg viewBox="0 0 30 12" aria-hidden="true"><rect class="plaster" x="1.5" y="1.6" width="27" height="8.8" /><path class="cable chased" d="M4 6h22" /></svg><span class="words"><span data-t="chase"></span><small id="priceChase"></small></span></button>
       </div>
       <div id="strip" class="strip" role="toolbar" hidden></div>
+      <button id="rcd" class="tag rcdtag" type="button" aria-pressed="false" hidden>
+        <span class="amp"><svg class="drip" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.4 C 12.8 6.6 15.4 9.6 15.4 12.6 A5.4 5.4 0 0 1 4.6 12.6 C 4.6 9.6 7.2 6.6 10 2.4 Z" /></svg><b data-t="rcd"></b></span>
+        <span class="slots"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="kw" data-t="rcdTrip"></span>
+      </button>
       <div class="controls">
         <div class="left">
           <button id="undo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5" /><path d="M5 11h9.5a5 5 0 0 1 0 10H11" /></svg></button>
@@ -174,10 +222,16 @@
         <svg data-feature="wish" viewBox="0 0 132 76" aria-hidden="true"><use href="#art-wish" /></svg>
         <svg data-feature="chase" viewBox="0 0 120 116" aria-hidden="true"><use href="#art-chaser" width="120" height="60" /><use href="#art-chase" y="66" width="120" height="50" /></svg>
         <svg data-feature="lights" viewBox="0 0 132 38" aria-hidden="true"><use href="#art-lights" /></svg>
+        <svg data-feature="wet" viewBox="0 0 132 64" aria-hidden="true"><use href="#art-wet" /></svg>
       </span>
     </button>
     <div id="card" class="card" role="dialog" aria-labelledby="cardTitle" hidden>
       <p id="cardTitle" class="headline"></p>
+      <div id="hook" class="hook" role="img" hidden>
+        <span id="hookJob" class="hookjob"></span>
+        <svg class="hookart" viewBox="0 0 132 64" aria-hidden="true"><use href="#art-hook" /></svg>
+        <span class="hooktool" data-t="crimperName"></span>
+      </div>
       <div id="cardStars" class="stars"></div>
       <p id="review" class="review"><span id="reviewLine"></span><span id="reviewBy" class="by"></span></p>
       <div class="money" id="cardProfit"><span data-t="profit"></span><b id="cardProfitValue"></b></div>
