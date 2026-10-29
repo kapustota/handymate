@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>HandyMate</title>
-  <script type="module" crossorigin src="./assets/index-78RuMkzE.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CCeK0dUF.css">
+  <script type="module" crossorigin src="./assets/index-DB5uugkz.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-6MiJtTLr.css">
 </head>
 <body>
 <svg class="library" width="0" height="0" aria-hidden="true">
@@ -63,6 +63,27 @@
     <g class="dev"><circle cx="12" cy="54" r="6.4" /><path d="M9.6 51 V57 M14.4 51 V57" /></g>
     <g class="dev"><circle cx="120" cy="54" r="6.4" /><path d="M117.6 51 V57 M122.4 51 V57" /></g>
   </symbol>
+  <!-- Step 5 (tasks/U/05): the wall chaser — its twin-disc guard, the motor, the top handle, the rear grip — and what it
+       does: a cable run along a wall's face, faded into the fresh plaster of its groove, as the plan draws a chase. -->
+  <symbol id="art-chaser" viewBox="0 0 120 60">
+    <g class="pencil">
+      <path d="M8 46 A22 22 0 1 1 52 46 Z" />
+      <path class="blade" d="M14 46 A16 16 0 0 1 46 46 M19 46 A11 11 0 0 1 41 46" />
+      <path class="bed" d="M4 46 H56" />
+      <path d="M50 22 H94 Q101 22 101 29 V39 Q101 46 94 46 H50 Z" />
+      <path d="M62 22 V13 Q62 8 67 8 H83 Q88 8 88 13 V22" />
+      <rect class="grip" x="101" y="27" width="13" height="16" rx="4" />
+      <path class="vent" d="M70 28 V40 M75 28 V40 M80 28 V40" />
+      <path class="cord" d="M114 39 q4 3 4 9" />
+    </g>
+  </symbol>
+  <symbol id="art-chase" viewBox="0 0 120 50">
+    <rect class="wall" x="0" y="4" width="120" height="20" />
+    <path class="plaster" d="M18 24 H102" />
+    <path class="cable" d="M18 24 H102" />
+    <g class="dev"><circle cx="12" cy="24" r="6.4" /><path d="M9.6 21 V27 M14.4 21 V27" /></g>
+    <g class="dev"><circle cx="108" cy="24" r="6.4" /><path d="M105.6 21 V27 M110.4 21 V27" /></g>
+  </symbol>
 </svg>
 <div id="phone">
   <div id="sheet">
@@ -76,7 +97,7 @@
         <path class="tick" d="M50.5 3.6 l1.3 1.4 l2.7 -3.2" />
       </svg>
       <button id="start" class="ptag start" type="button"><b id="startLabel"></b><small id="startNote"></small></button>
-      <button id="toShop" class="ptag shoptag" type="button" hidden><svg viewBox="0 0 120 60" aria-hidden="true"><use href="#art-hammer" /></svg><span data-t="toShop"></span></button>
+      <button id="toShop" class="ptag shoptag" type="button" hidden><svg viewBox="0 0 120 60" aria-hidden="true"><use id="toShopArt" href="#art-hammer" /></svg><span data-t="toShop"></span></button>
       <p id="soon" class="soon" hidden></p>
       <div id="played" class="played" hidden></div>
     </section>
@@ -103,21 +124,30 @@
       <div id="caps" class="caps" role="toolbar" hidden>
         <button class="cap" type="button" aria-pressed="false" data-method="open"><svg viewBox="0 0 30 12" aria-hidden="true"><path class="cable open" d="M3 6h24" /></svg><span class="words"><span data-t="open"></span><small id="priceOpen"></small></span></button>
         <button class="cap" type="button" aria-pressed="false" data-method="channel"><svg viewBox="0 0 30 12" aria-hidden="true"><rect class="duct" x="1.5" y="2.4" width="27" height="7.2" rx="0.8" /><path class="cable" d="M4 6h22" /></svg><span class="words"><span data-t="channel"></span><small id="priceChannel"></small></span></button>
+        <button class="cap" type="button" aria-pressed="false" data-method="chase" hidden><svg viewBox="0 0 30 12" aria-hidden="true"><rect class="plaster" x="1.5" y="1.6" width="27" height="8.8" /><path class="cable chased" d="M4 6h22" /></svg><span class="words"><span data-t="chase"></span><small id="priceChase"></small></span></button>
       </div>
       <div id="strip" class="strip" role="toolbar" hidden></div>
       <div class="controls">
-        <button id="undo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5" /><path d="M5 11h9.5a5 5 0 0 1 0 10H11" /></svg></button>
+        <div class="left">
+          <button id="undo" class="disc" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 4.5 11 9 15.5" /><path d="M5 11h9.5a5 5 0 0 1 0 10H11" /></svg></button>
+          <button id="hint" class="disc hint" type="button" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z" /><path d="M13 7l4 4" /></svg></button>
+        </div>
         <button id="finish" class="ptag finish" type="button" hidden><b data-t="finish"></b><small id="bill" hidden></small></button>
         <div class="zoom"><button id="zoomOut" class="disc" type="button">−</button><button id="zoomIn" class="disc" type="button">+</button></div>
+      </div>
+      <div id="ways" class="ways" hidden>
+        <button class="ptag way" type="button" data-pay="client"><span class="wstars" id="clientStars"></span><span data-t="wayClient"></span><b id="clientMoney"></b></button>
+        <button class="ptag way" type="button" data-pay="savings"><span class="wstars" id="savingsStars"></span><span data-t="waySavings"></span><b id="savingsMoney"></b></button>
       </div>
     </section>
     <section id="shop" class="screen shop" hidden>
       <p class="headline" data-t="shop"></p>
       <div class="savings"><span data-t="savings"></span><b id="shopSavings"></b></div>
+      <div id="shopBought" class="kit" hidden></div>
       <div class="item">
-        <svg class="tool" viewBox="0 0 120 60" aria-hidden="true"><use href="#art-hammer" /></svg>
-        <p class="name" data-t="drillName"></p>
-        <svg id="does" class="does" viewBox="0 0 120 50" role="img" aria-label="A hole through a wall for the cable"><use href="#art-hole" /></svg>
+        <svg class="tool" viewBox="0 0 120 60" aria-hidden="true"><use id="toolArt" href="#art-hammer" /></svg>
+        <p id="toolName" class="name"></p>
+        <svg id="does" class="does" viewBox="0 0 120 50" role="img" aria-label="A hole through a wall for the cable"><use id="doesArt" href="#art-hole" /></svg>
         <b id="price" class="price"></b>
         <div id="owned" class="stamp" data-t="bought" hidden></div>
       </div>
@@ -131,6 +161,7 @@
         <svg data-feature="drill" viewBox="0 0 120 116" aria-hidden="true"><use href="#art-hammer" width="120" height="60" /><use href="#art-hole" y="66" width="120" height="50" /></svg>
         <svg data-feature="load" viewBox="0 0 132 64" aria-hidden="true"><use href="#art-load" /></svg>
         <svg data-feature="wish" viewBox="0 0 132 76" aria-hidden="true"><use href="#art-wish" /></svg>
+        <svg data-feature="chase" viewBox="0 0 120 116" aria-hidden="true"><use href="#art-chaser" width="120" height="60" /><use href="#art-chase" y="66" width="120" height="50" /></svg>
       </span>
     </button>
     <div id="card" class="card" role="dialog" aria-labelledby="cardTitle" hidden>
