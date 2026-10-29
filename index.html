@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>HandyMate</title>
-  <script type="module" crossorigin src="./assets/index-DB5uugkz.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-6MiJtTLr.css">
+  <script type="module" crossorigin src="./assets/index-DxFFfMgp.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DKAP_0Vg.css">
 </head>
 <body>
 <svg class="library" width="0" height="0" aria-hidden="true">
@@ -83,6 +83,17 @@
     <path class="cable" d="M18 24 H102" />
     <g class="dev"><circle cx="12" cy="24" r="6.4" /><path d="M9.6 21 V27 M14.4 21 V27" /></g>
     <g class="dev"><circle cx="108" cy="24" r="6.4" /><path d="M105.6 21 V27 M110.4 21 V27" /></g>
+  </symbol>
+  <!-- Step 6 (tasks/U/06): lights on their own line — from the panel one chase carrying two cables, the sockets' line to
+       a socket and the lamp's own thinner one on beside it to the wall light, as the plan draws them. -->
+  <symbol id="art-lights" viewBox="0 0 132 38">
+    <rect class="wall" x="0" y="2" width="132" height="22" />
+    <path class="plaster" d="M14 24 H124" />
+    <path class="cable" d="M22 19 H84" />
+    <path class="lamp" d="M22 29 H118" />
+    <g class="box"><rect x="4" y="16" width="16" height="16" rx="2.4" /><path d="M13.4 18.6 L8.6 25 H12 L10.6 29.6 L15.6 23 H12.2 Z" /></g>
+    <g class="dev"><circle cx="90" cy="19" r="6" /><path d="M87.8 16.2 V21.8 M92.2 16.2 V21.8" /></g>
+    <g class="dev"><circle cx="124" cy="29" r="6" /><path d="M121.2 29.7 A2.8 2.8 0 0 1 126.8 29.7 Z M124 29.7 V32" /></g>
   </symbol>
 </svg>
 <div id="phone">
@@ -162,6 +173,7 @@
         <svg data-feature="load" viewBox="0 0 132 64" aria-hidden="true"><use href="#art-load" /></svg>
         <svg data-feature="wish" viewBox="0 0 132 76" aria-hidden="true"><use href="#art-wish" /></svg>
         <svg data-feature="chase" viewBox="0 0 120 116" aria-hidden="true"><use href="#art-chaser" width="120" height="60" /><use href="#art-chase" y="66" width="120" height="50" /></svg>
+        <svg data-feature="lights" viewBox="0 0 132 38" aria-hidden="true"><use href="#art-lights" /></svg>
       </span>
     </button>
     <div id="card" class="card" role="dialog" aria-labelledby="cardTitle" hidden>
